@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="assets/js/todo.js"></script>
+    <style>
+        #main{
+            display: flex;
+            justify-content: center;
+            
+        }
+        #container{
+            border: 1px solid black;
+            box-shadow: #333 3px 3px 5px;
+            width: auto;
+            height: auto;
+            padding: 30px;
+            border-radius: 5px;
+            font-size: 24px;
+        }
+
+        input{
+            display: block;
+        }
+
+        input[type=text]{
+            border: none;
+            border-bottom: 2px solid black;
+            width: 100%;
+            margin-bottom: 20px;
+            outline-style: none;
+            font-size: 20px;
+        }
+
+        input[type=date]{
+            border: none;
+            border-bottom: 2px solid black;
+            width: 100%;
+            margin-bottom: 20px;
+            outline-style: none;
+            font-size: 20px;
+        }
+
+        input[type=submit]{
+            width: 30%;
+            /* margin-bottom: 20px; */
+            font-size: 20px;
+            margin: auto;
+            border-radius: 5px;
+        }
+
+        input[type=submit]:hover{
+            box-shadow: #333 1px 2px 5px;
+            font-size: 22px;
+        }
+
+        table {
+            font-family: cursive;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        td, th {
+            border: 1px solid #c4c4c4;
+            text-align: center;
+            padding: 8px;
+        }
+
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #ffffff;
+            color: #444;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div ng-app="todoApp" ng-controller="todoCtrl" id="container">
+            <h2>TO-DO APP</h2>
+            <form ng-submit="addTodo()">
+                <label for="title">Title:</label>
+                <input type="text" ng-model="newTodo.title" id="title" required>
+                <label for="description">Description:</label>
+                <input type="text" ng-model="newTodo.description" id="description">
+                <label for="date">Date:</label>
+                <input type="date" ng-model="newTodo.date" id="date">
+                <input type="submit" value="Add">
+            </form>
+
+            <table>
+                <tr>
+                    <th>S/N</th>
+                    <th>TITLE</th>
+                    <th>DESCRIPTION</th>
+                    <th>DATE</th>
+                    <th>COMPLETED?</th>
+                </tr>
+
+                <tr ng-repeat="todos in todoList">
+                    <td>{{$index + 1}}.</td>
+                    <td>{{todos.title}}</td>
+                    <td>{{todos.description}}</td>
+                    <td>{{todos.date.day}} - {{todos.date.month + 1}} - {{todos.date.year}}</td>
+                    <td><button ng-click="removeTodo(todos)">Remove</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>
