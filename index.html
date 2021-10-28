@@ -6,122 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <script src="assets/js/todo.js"></script>
-    <style>
-        #main{
-            display: flex;
-            justify-content: center;
-            
-        }
-        #container{
-            border: 1px solid black;
-            box-shadow: #333 3px 3px 5px;
-            width: auto;
-            height: auto;
-            padding: 30px;
-            border-radius: 5px;
-            font-size: 24px;
-        }
-
-        input{
-            display: block;
-        }
-
-        input[type=text]{
-            border: none;
-            border-bottom: 2px solid black;
-            width: 100%;
-            margin-bottom: 20px;
-            outline-style: none;
-            font-size: 20px;
-        }
-
-        input[type=date]{
-            border: none;
-            border-bottom: 2px solid black;
-            width: 100%;
-            margin-bottom: 20px;
-            outline-style: none;
-            font-size: 20px;
-            background-color: transparent;
-        }
-
-        input[type=submit]{
-            width: 30%;
-            /* margin-bottom: 20px; */
-            font-size: 20px;
-            margin: auto;
-            border-radius: 5px;
-        }
-
-        input[type=submit]:hover{
-            box-shadow: #333 1px 2px 5px;
-            /* font-size: 22px; */
-        }
-
-        table {
-            font-family: cursive;
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        td, th {
-            border: 1px solid black;
-            text-align: center;
-            padding: 8px;
-        }
-
-        th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: center;
-            background-color: transparent;
-            color: #444;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover > td{
-            background-color: #ddd;
-            /* border: 0.5px solid #333; */
-        }
-        
-        .date{
-            width: 176px;
-        }
-
-        @media screen and (max-width: 820px) {
-            #container{
-                width: 80%;
-                font-size: 3vmax;
-            }
-
-            table{
-                font-size: 2.5vmin;
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            }
-
-            input[type=text], input[type=date], input[type=submit]{
-                font-size: 16px;
-            }
-
-            td, th {
-                padding: 2px;
-            }
-
-            th {
-                padding-top: 3px;
-                padding-bottom: 3px;
-            }
-            
-            .date{
-                width: 73px;
-            }
-        }
-    </style>
 </head>
 <body>
     <div id="main">
@@ -147,7 +33,7 @@
                         <th>COMPLETED?</th>
                     </tr>
                 </thead>
-                
+
                 <tbody>
                     <tr ng-repeat="todos in todoList">
                         <td>{{$index + 1}}.</td>

@@ -22,5 +22,5 @@ app.controller('todoCtrl', ['$scope', ($scope)=>{
     $scope.removeTodo = (todos)=>{
         let removedTodo = $scope.todoList.indexOf(todos)
         $scope.todoList.splice(removedTodo, 1);
-      };
+    };
 }]);
